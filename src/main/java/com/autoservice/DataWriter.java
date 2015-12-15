@@ -41,9 +41,8 @@ public class DataWriter {
      */
     private static void writeInXML(Car car)  {
         try {
-            Element root = new Element("Car");
+            Element root = new Element(car.getId());
             Document doc = new Document(root);
-            root.addContent(new Element("ID").addContent(car.getId()));
             root.addContent(new Element("Name").addContent(car.getName()));
             root.addContent(new Element("Owner").addContent(car.getOwner()));
             root.addContent(new Element("HandlingTime").addContent(String.valueOf(car.getHandlingTime())));
