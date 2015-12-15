@@ -7,6 +7,7 @@ import org.jdom.Element;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -49,7 +50,7 @@ public class DataWriter {
 
             XMLOutputter outputter = new XMLOutputter();
             outputter.setFormat(Format.getPrettyFormat());
-
+            new File("./CarsInfo").mkdirs();
             outputter.output(doc, new FileOutputStream("CarsInfo/" + car.getName() + "_" + uniqueIdForXMLfile + ".xml"));
             uniqueIdForXMLfile++;
             logger.info("Data about "+car.getName()+"writed in XML-file");
